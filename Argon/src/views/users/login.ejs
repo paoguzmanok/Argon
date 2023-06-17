@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Include head-->
+    <%- include('../partials/head') %>
+    <script src="/js/LoginValidation.js"></script>
+    <title>Argon | Login</title>
+  </head>
+  <body>
+    <header>
+      <!--Include header-->
+      <%- include('../partials/header') %>
+    </header>
+    <div class="login-box">
+      <span class="borderLine"></span>
+      <form method="POST" action="/users/login" class="login">
+        <h2>Iniciar sesión</h2>
+        <div class="erroresLogin">
+          <ul></ul>
+        </div>
+        <div class="loginInput email">
+          <!--Primero revisa si existe cookies y luego si contiene el email-->
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            class="form-control email <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+            value="<%= locals.cookies ? locals.cookies['userEmail'] : null %>"
+          />
+          <div class="text-danger email">
+            <% if (locals.errors && errors.email) { %> <%= errors.email.msg %>
+            <% } %>
+          </div>
+          <i></i>
+        </div>
+        <div class="loginInput password">
+          <input
+            type="password"
+            name="password"
+            placeholder="Contraseña"
+            class="form-control password <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+            value="<%= locals.oldData ? oldData.password : null %>"
+          />
+         
+          <div class="text-danger password">
+            <% if (locals.errors && errors.password) { %><%= errors.password.msg %>
+          <% } %>
+          </div>
+          <i></i>
+        </div>
+        <label for="recordame" class="recordame">
+          <input type="checkbox" class="recordame" name="recordame" /> Recordar mi cuenta
+          
+        </label>
+        <div class="links">
+          <div class="link-contra">
+            <a href="/users/register" class="link-regis" >Registrarse</a>
+            <div class="link-contra">
+              <a href="#">Olvidé mi contraseña</a>
+
+            </div>
+          </div>
+          
+        </div>
+        <button type="submit" value="iniciar sesión" class="btn-regis">
+          iniciar sesión
+        </button>
+      </form>
+    </div>
+    <footer>
+      <!--Include Footer-->
+      <%- include('../partials/footer') %>
+    </footer>
+  </body>
+</html>

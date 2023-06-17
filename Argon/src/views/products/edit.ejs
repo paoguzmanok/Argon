@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Include head-->
+    <%- include('../partials/head') %>
+    <script src="/js/EditValidation.js"></script>
+    <title>Argon | Edición</title>
+  </head>
+  <body>
+    <header>
+      <!--Include header-->
+      <%- include('../partials/header') %>
+    </header>
+
+  
+    <div class="edit-box">
+      <form
+        action="/products/<%= Productos.id %>?_method=PUT"
+        method="POST"
+        enctype="multipart/form-data"
+        class="edit"
+      >
+        <h2><%= Productos.nombre %></h2>
+      
+        <div class="img-edit">
+          <img src="<%= Productos.imagen %>" />
+        </div>
+        <label for="imagen">Imagen</label>
+        <input
+          class="form-control img"
+          type="file"
+          placeholder="Imagen"
+          name="imagen"
+          id="imagen"
+          value="<%= Productos.imagen %>"
+        />
+        <label for="producto">Nombre del producto</label>
+        <input
+          type="text"
+          name="nombre"
+          class="form-control nombre"
+          id="nombre"
+          value="<%= Productos.nombre %>"
+        />
+        <div class="text-danger nombre">
+          <% if (locals.errors && errors.nombre) { %><%= errors.nombre.msg %> <%
+          } %>
+        </div>
+
+        <div class="content-select">
+        <label for="marca">Marca</label>
+        <select name="marca" id="marca">
+          <option value="1" <% if(Productos.marcaId==1){ %><%= "selected"  %><% } %> >Dell</option>
+          <option value="2" <% if(Productos.marcaId==2){ %><%= "selected"  %><% }%>>Gigabyte</option>
+          <option value="3" <% if(Productos.marcaId==3){ %><%= "selected"  %><% }%>>ViewSonic</option>
+          <option value="4" <% if(Productos.marcaId==4){ %><%= "selected"  %><% }%>>Asus</option>
+          <option value="5" <% if(Productos.marcaId==5){ %><%= "selected"  %><% }%>>Intel</option>
+          <option value="6" <% if(Productos.marcaId==6){ %><%= "selected"  %><% }%>>Amd</option>
+          <option value="7" <% if(Productos.marcaId==7){ %><%= "selected"  %><% }%>>Corsair</option>
+          <option value="8" <% if(Productos.marcaId==8){ %><%= "selected"  %><% }%>>Logitech</option>
+          <option value="9" <% if(Productos.marcaId==9){ %><%= "selected"  %><% }%>>Adata</option>
+          <option value="10" <% if(Productos.marcaId==10){ %><%= "selected"  %><% }%>>Zotac</option>
+          <option value="11" <% if(Productos.marcaId==11){ %><%= "selected"  %><% }%>>Western Digital</option>
+          <option value="12" <% if(Productos.marcaId==12){ %><%= "selected"  %><% }%>>Samsung</option>
+          <option value="13" <% if(Productos.marcaId==13){ %><%= "selected"  %><% }%>>MSI</option>
+          <option value="14" <% if(Productos.marcaId==14){ %><%= "selected"  %><% }%>>PNY</option>
+          <option value="15" <% if(Productos.marcaId==15){ %><%= "selected"  %><% }%>>Redragon</option>
+          <option value="16" <% if(Productos.marcaId==16){ %><%= "selected"  %><% }%>>Noganet</option>
+          <option value="17" <% if(Productos.marcaId==17){ %><%= "selected"  %><% }%>>Deepcool</option>
+          <option value="18" <% if(Productos.marcaId==18){ %><%= "selected"  %><% }%>>Overtech</option>
+          <option value="19" <% if(Productos.marcaId==19){ %><%= "selected"  %><% }%>>TForce</option>
+          <option value="20" <% if(Productos.marcaId==20){ %><%= "selected"  %><% }%>>IdCooling</option>
+          <option value="21" <% if(Productos.marcaId==21){ %><%= "selected"  %><% }%>>GENERICO</option>
+  
+        </select>
+     
+        </div>
+        
+        <label for="sockets">Sockets</label>
+        <input
+          class="form-control sockets"
+          type="text"
+          name="sockets"
+          id="sockets"
+          placeholder="<%=Productos.sockets %>"
+          value="<%= Productos.sockets %>"
+        />
+
+        <label for="slots">Slots</label>
+        <div class="content-select">
+        <select name="slots" id="slots">
+          <option value="0" <% if(Productos.slots==0){ %><%= "selected"  %><% }%>>No aplica</option>
+          <option value="2" <% if(Productos.slots==2){ %><%= "selected"  %><% }%>>2</option>
+          <option value="4" <% if(Productos.slots==4){ %><%= "selected"  %><% }%>>4</option>
+          <option value="6" <% if(Productos.slots==6){ %><%= "selected"  %><% }%>>6</option>
+          <option value="8" <% if(Productos.slots==8){ %><%= "selected"  %><% }%>>8</option>
+        </select>
+        </div>
+
+        <label for="ram">Ram</label>
+        <div class="content-select">
+        <select name="ram" id="ram">
+          <option value="" <% if(Productos.ram==""){ %><%= "selected"  %><% }%>>No aplica</option>
+          <option value="DDR3" <% if(Productos.ram=="DDR3"){ %><%= "selected"  %><% }%>>DDR3</option>
+          <option value="DDR4" <% if(Productos.ram=="DDR4"){ %><%= "selected"  %><% }%>>DDR4</option>
+          <option value="DDR5" <% if(Productos.ram=="DDR5"){ %><%= "selected"  %><% }%>>DDR5</option>
+        </select>
+       
+        </div>
+
+        <label for="precio">Precio</label>
+        <input
+          class="form-control precio"
+          type="number"
+          name="precio"
+          id="precio"
+          value="<%= Productos.precio %>"
+        />
+        <div class="text-danger precio">
+          <% if (locals.errors && errors.precio) { %><%= errors.precio.msg %> <%
+          } %>
+          </div>
+        <label for="descripcion">Descripción</label>
+        <input
+          class="form-control descripcion"
+          type="text"
+          name="descripcion"
+          id="descripcion"
+          value="<%= Productos.descripcion %>"
+        />
+
+        <label for="gama">Gama</label>
+        <div class="content-select">
+        <select name="gama" id="gama">
+          <option value="1" <% if(Productos.gamaId==1){ %><%= "selected"  %><% }%>>Alta</option>
+          <option value="2" <% if(Productos.gamaId==2){ %><%= "selected"  %><% }%>>Media</option>
+          <option value="3" <% if(Productos.gamaId==3){ %><%= "selected"  %><% }%>>Baja</option>
+        </select>
+        </div>
+      <div class="edit-box-btn">
+        <button type="submit" class="btn-edit submit">GUARDAR</button>
+        <button type="submit" class="btn-edit rest ">Eliminar</button>
+      </div>
+      </form>
+    
+    </div>
+
+    <!--Include Footer-->
+    <%- include('../partials/footer') %>
+  </body>
+</html>

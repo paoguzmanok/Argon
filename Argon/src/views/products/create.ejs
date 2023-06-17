@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Include head-->
+    <%- include('../partials/head') %>
+    <script src="/js/CreateValidation.js"></script>
+
+    <title>Argon | Carga</title>
+  </head>
+  <body>
+    <header>
+      <!--Include header-->
+      <%- include('../partials/header') %>
+    </header>
+    
+    <section class="create-box">
+    </br>
+      <h2>Carga tus productos</h2>
+      <!-- <div class="erroresCreate">
+            <ul>
+
+            </ul>
+          </div> -->
+
+      <form
+        action="/products/create"
+        method="POST"
+        enctype="multipart/form-data"
+        class="create register"
+      >
+
+  
+      
+        <label for="producto"></label>
+        <input
+          class="form-control nombre"
+          type="text"
+          placeholder="Nombre del producto"
+          name="nombre"
+          id="nombre"
+        />
+        <div class="text-danger nombre">
+          <% if (locals.errors && errors.nombre) { %><%= errors.nombre.msg %> <%
+          } %>
+        </div>
+        <br />
+
+        <label for="descripción"></label>
+        <input
+          class="form-control desc"
+          type="text"
+          placeholder="Descripción"
+          name="descripcion"
+          id="descripcion"
+        />
+        <div class="text-danger desc">
+          <% if (locals.errors && errors.desc) { %><%= errors.desc.msg %> <% }
+          %>
+        </div>
+        <br />
+
+        
+        <label for="marca">Marca</label>
+        <div class="content-select">
+        <select name="marca" id="marca">
+          <option value="1">Dell</option>
+          <option value="2">Gigabyte</option>
+          <option value="3">ViewSonic</option>
+          <option value="4">Asus</option>
+          <option value="5">Intel</option>
+          <option value="6">md</option>
+          <option value="7">Corsair</option>
+          <option value="8">Logitech</option>
+          <option value="9">Adata</option>
+          <option value="10">Zotac</option>
+          <option value="11">Western Digital</option>
+          <option value="12">Samsung</option>
+          <option value="13">SI</option>
+          <option value="14">NY</option>
+          <option value="17">Deepcool</option>
+          <option value="185">Redragon</option>
+          <option value="16">Noganet</option>
+          <option value="1">Overtech</option>
+          <option value="19">TForce</option>
+          <option value="20">IdCooling</option>
+          <option value="21">GENERICO</option>
+        </select>
+        <div class="text-danger marca">
+          <% if (locals.errors && errors.marca) { %><%= errors.marca.msg %> <% }
+          %>
+        </div>
+        <i></i>
+        </div>
+
+        <label for="imagen"></label>
+        <input
+          class="form-control img"
+          type="file"
+          placeholder="Imagen"
+          name="imagen"
+          id="imagen"
+        />
+        <div class="text-danger img">
+          <% if (locals.errors && errors.img) { %><%= errors.img.msg %> <% } %>
+        </div>
+        <br />
+        
+        <label for="gama">Gama</label>
+        <div class="content-select">
+        <select name="gama" id="gama">
+          <option value="3" selected>Baja</option>
+          <option value="2">Media</option>
+          <option value="1">Alta</option>
+        </select>
+        <div class="text-danger gama">
+          <% if (locals.errors && errors.gama) { %><%= errors.gama.msg %> <% }
+          %>
+        </div>
+        <i></i>
+        </div>
+        
+        <div class="cont">
+        <label for="ram"></label>
+        <input
+          class="form-control ram"
+          type="text"
+          placeholder="Memoria/s RAM: (ejemplo: DDR3, DDR4, DDR5...)"
+          name="ram"
+          id="ram"
+        />
+        <div class="text-danger ram">
+          <% if (locals.errors && errors.ram) { %><%= errors.ram.msg %> <% } %>
+        </div>
+      </div>
+        <br />
+
+        <label for="slots">Slots</label>
+        <div class="content-select">
+        <select name="slots" id="slots">
+          <option value="0">No aplica</option>
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+        </select>
+        <div class="text-danger slots">
+          <% if (locals.errors && errors.slots) { %><%= errors.slots.msg %> <% }
+          %>
+        </div>
+        <i></i>
+        </div>
+
+        <label for="sockets"></label>
+        <input
+          class="form-control sockets"
+          type="text"
+          placeholder="Sockets: (ejemplo: 1700, am4...)"
+          name="sockets"
+          id="sockets"
+        />
+
+        <div class="text-danger sockets">
+          <% if (locals.errors && errors.sockets) { %><%= errors.sockets.msg %>
+          <% } %>
+        </div>
+        <br />
+
+        <label for="precio"></label>
+        <input
+          class="form-control precio"
+          type="number"
+          placeholder="Precio"
+          name="precio"
+          id="precio"
+        />
+        <div class="text-danger precio">
+          <% if (locals.errors && errors.precio) { %><%= errors.precio.msg %> <%
+          } %>
+        </div>
+        <br />
+        <div class="content-btn-create">
+          <div class="create-btn2">
+            <button type="submit" value="cargar" class="btn-regis btn-submit" id="create">
+              Cargar
+            </button>
+          </div>
+        <div class="create-btn">
+        <button type="reset" value="registrarse" class="btn-regis">
+          Vaciar
+        </button>
+      </div>
+    </div>
+      </form>
+    </section>
+    <footer>
+      <!--Include Footer-->
+      <%- include('../partials/footer') %>
+    </footer>
+  </body>
+</html>

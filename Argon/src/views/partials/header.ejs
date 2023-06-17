@@ -1,0 +1,82 @@
+<div id="page">
+  <!-- seccion contactos -->
+  <div class="block-media block-media__modifir">
+    <div class="block-media__Vtelefonica block-media__social-modify"></div>
+    <div class="block-media__social"></div>
+  </div>
+  <!-- seccion de encabezado -->
+  <header class="header">
+    <div class="header-width">
+      <div class="headerLogo-Menu">
+        <div class="header__menu">
+          <span class="header__menu-span linea1"></span>
+          <span class="header__menu-span linea2"></span>
+          <span class="header__menu-span linea3"></span>
+        </div>
+        <a href="/" class="header__logo">TECH ARGON</a>
+      </div>
+      <form action="/products/filter" method="GET">
+        <div class="search" id="search">
+        <input
+          type="text"
+          placeholder="Busca productos, marcas y más..."
+          name="nombreProducto" autocomplete="off"
+        />
+        <button class="btn-search">
+          <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      </form>
+      <div class="header__interactivo">
+        <% if (locals.isLogged) { %>
+        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="/users/profile">
+          <img
+            src="<%= locals.userLogged.avatar %>"
+            width="40"
+            style="border-radius: 100%"
+            class="nav-img-user"
+          />
+        </a>
+
+        <% } else { %>
+        <a href="/users/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="/users/login"><i class="fa-solid fa-circle-user"></i></a>
+        <% } %>
+      </div>
+    </div>
+    <div class="header__shadow"></div>
+  </header>
+  <!-- menu -->
+  <div class="openMenu">
+    <nav class="openMenu-nav">
+      <img src="/img/sitio/logo-argon.png" alt="" class="logo-openMenu" />
+      <ul class="openMenu-ul">
+        <li class="openMenu-li" id="menuOpen-search">
+          <input type="text" class="menuOpen-search" placeholder="Buscar..." />
+        </li>
+        <li class="openMenu-li">
+          <a href="/" class="openMenu-links">Inicio</a>
+        </li>
+        <li class="openMenu-li">
+          <a href="/products/allproducts" class="openMenu-links"
+            >¡Mira nuestros productos!</a
+          >
+        </li>
+        <% if (locals.isLogged) { %>
+        <li class="openMenu-li">
+          <a href="/users/profile" class="openMenu-links">Tu perfil</a>
+        </li>
+        <%} %>
+        <% if (locals.userLogged && locals.userLogged.rolId == "1") {%>
+        <li class="openMenu-li">
+          <a href="/products/admin" class="openMenu-links">Administrador</a>
+        </li>
+        <%} %>
+        <li class="openMenu-li">
+          <a href="/users/logout" class="openMenu-links">Cerrar sesión</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

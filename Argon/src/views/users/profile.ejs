@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Include head-->
+    <%- include('../partials/head') %>
+    <title>Argon | Register</title>
+  </head>
+
+  <header>
+    <!--Include header-->
+    <%- include('../partials/header') %>
+  </header>
+  <div class="menuDesplegado">
+    <!--Include menu-->
+  </div>
+  <body>
+    <div class="pageProfile">
+      <div class="apartados">
+        <div class="profileIMG">
+          <img src="<%= user.avatar %>" alt="" class="avatarIMG" />
+          <h4><%= user.nombre %> <%= user.apellido %></h4>
+          <!--/img/users/1682198133444_img.png-->
+        </div>
+        <div class="categorias">
+          <i class="fa-solid fa-cart-shopping"></i>
+          Historial de Compras
+        </div>
+        <div class="categorias">
+          <i class="fa-solid fa-user-shield"></i>
+          Seguridad
+        </div>
+        <div class="categorias">
+          <i class="fa-solid fa-unlock"></i>
+          Privacidad
+        </div>
+      </div>
+
+      <div class="infoProfile">
+        <h3 class="titleProfile">Datos Personales</h3>
+        <div class="userDetail">
+          <div class="detail">
+            <div class="w-400">
+              <h5>N° de usuario</h5>
+            </div>
+            <div><%= user.id %></div>
+          </div>
+          <hr />
+          <div class="detail">
+            <div class="w-400">
+              <h5>Nombre</h5>
+            </div>
+            <div><%= user.nombre %> <%= user.apellido %></div>
+          </div>
+          <hr />
+          <div class="detail">
+            <div class="w-400">
+              <h5>Correo</h5>
+            </div>
+            <div><%= user.correo %></div>
+          </div>
+          <hr />
+          <div class="detail">
+            <div class="w-400">
+              <h5>Telefono</h5>
+            </div>
+            <div><%= user.telefono %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <!--Include Footer-->
+      <%- include('../partials/footer') %>
+    </footer>
+  </body>
+</html>
