@@ -2,12 +2,12 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const mainRouter = require("./routers/main-router");
+const mainRouter = require("./src/routers/main-router");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const cookies = require("cookie-parser");
-const userLoggedMiddleware = require("./middlewares/userLoggedMiddlewares");
-const { Usuario } = require("./database/models");
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddlewares");
+const { Usuario } = require("./src/database/models");
 
 //Ejecución de express
 const app = express();
