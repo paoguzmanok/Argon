@@ -9,7 +9,7 @@ const cookies = require("cookie-parser");
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddlewares");
 const { Usuario } = require("./src/database/models");
 
-//Ejecución de express
+//Ejecución de expressgit
 const app = express();
 
 app.use(
